@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import GitHub from "next-auth/providers/github";
+import prisma from "./prisma";
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
   providers: [
@@ -11,14 +12,15 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         password: {},
       },
       authorize: async (credentials) => {
-        const email = "admin@dip.com";
-        const password = "1234";
+        const user = await prisma.user.findFirst({
+          where: { email: credentials.email, password: credentials.password },
+        });
 
-        if (credentials.email === email && credentials.password === password) {
-          return { email, password };
-        } else {
+        if (!user) {
           throw new Error("Invalid credentials");
         }
+
+        return user;
       },
     }),
   ],
