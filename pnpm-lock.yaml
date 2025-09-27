@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@auth/prisma-adapter':
+        specifier: ^2.10.0
+        version: 2.10.0(@prisma/client@6.16.2(prisma@6.16.2(typescript@5.9.2))(typescript@5.9.2))
       '@prisma/client':
         specifier: ^6.16.2
         version: 6.16.2(prisma@6.16.2(typescript@5.9.2))(typescript@5.9.2)
@@ -44,6 +47,12 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
+      uuid:
+        specifier: ^13.0.0
+        version: 13.0.0
+      zod:
+        specifier: ^4.1.11
+        version: 4.1.11
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -98,6 +107,11 @@ packages:
         optional: true
       nodemailer:
         optional: true
+
+  '@auth/prisma-adapter@2.10.0':
+    resolution: {integrity: sha512-EliOQoTjGK87jWWqnJvlQjbR4PjQZQqtwRwPAe108WwT9ubuuJJIrL68aNnQr4hFESz6P7SEX2bZy+y2yL37Gw==}
+    peerDependencies:
+      '@prisma/client': '>=2.26.0 || >=3 || >=4 || >=5 || >=6'
 
   '@emnapi/core@1.5.0':
     resolution: {integrity: sha512-sbP8GzB1WDzacS8fgNPpHlp6C9VZe+SJP3F90W9rLemaQj2PzIuTEl1qDOYQf58YIpyjViI24y9aPWCjEzY2cg==}
@@ -2195,6 +2209,10 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  uuid@13.0.0:
+    resolution: {integrity: sha512-XQegIaBTVUjSHliKqcnFqYypAd4S+WCYt5NIeRs6w/UAry7z8Y9j5ZwRRL4kzq9U3sD6v+85er9FvkEaBpji2w==}
+    hasBin: true
+
   which-boxed-primitive@1.1.1:
     resolution: {integrity: sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==}
     engines: {node: '>= 0.4'}
@@ -2237,6 +2255,9 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
+  zod@4.1.11:
+    resolution: {integrity: sha512-WPsqwxITS2tzx1bzhIKsEs19ABD5vmCVa4xBo2tq/SrV4RNZtfws1EnCWQXM6yh8bD08a1idvkB5MZSBiZsjwg==}
+
 snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
@@ -2248,6 +2269,15 @@ snapshots:
       oauth4webapi: 3.8.2
       preact: 10.24.3
       preact-render-to-string: 6.5.11(preact@10.24.3)
+
+  '@auth/prisma-adapter@2.10.0(@prisma/client@6.16.2(prisma@6.16.2(typescript@5.9.2))(typescript@5.9.2))':
+    dependencies:
+      '@auth/core': 0.40.0
+      '@prisma/client': 6.16.2(prisma@6.16.2(typescript@5.9.2))(typescript@5.9.2)
+    transitivePeerDependencies:
+      - '@simplewebauthn/browser'
+      - '@simplewebauthn/server'
+      - nodemailer
 
   '@emnapi/core@1.5.0':
     dependencies:
@@ -4530,6 +4560,8 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
+  uuid@13.0.0: {}
+
   which-boxed-primitive@1.1.1:
     dependencies:
       is-bigint: 1.1.0
@@ -4592,3 +4624,5 @@ snapshots:
   yaml@2.8.1: {}
 
   yocto-queue@0.1.0: {}
+
+  zod@4.1.11: {}
